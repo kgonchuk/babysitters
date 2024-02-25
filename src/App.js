@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import Layot from "../src/components/Layot/Layot.jsx";
+import { Global } from "./styles/GlobalStyle.styled.js";
+const Home = lazy(() => import("./pages/HomePage/HomePage.js"));
+const Favorite = lazy(() => import("./pages/FavoritePage/FavoritePage.js"));
+const Nannies = lazy(() => import("./pages/Nannies/Nannies.js"));
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Global />
+      <Routes>
+        <Route path="/" element={<Layot />}>
+          <Route index element={<Home />} />
+          <Route path="/nannies" element={<Nannies />} />
+          <Route path="/favorite" element={<Favorite />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
