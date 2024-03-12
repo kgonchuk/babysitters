@@ -10,6 +10,12 @@ export const LoginBtn = styled.button`
   font-size: 16px;
   color: ${baseTheme.background.white};
   margin-right: 8px;
+  transition: ${baseTheme.transition};
+  &:hover {
+    background-color: ${baseTheme.background.main};
+    color: ${baseTheme.background.white};
+    border: 1px solid ${baseTheme.background.main};
+  }
 `;
 
 export const RegisterBtn = styled.button`
@@ -19,4 +25,9 @@ export const RegisterBtn = styled.button`
   border-radius: 30px;
   font-size: 16px;
   color: ${baseTheme.background.white};
+  transition: ${baseTheme.transition};
+  &:hover {
+    background-color: ${baseTheme.background.white};
+    color: ${baseTheme.background.main};
+  }
 `;

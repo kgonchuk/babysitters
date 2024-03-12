@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { baseTheme } from "../../../styles/theme";
-import { ErrorMessage, Field } from "formik";
+import { Field, ErrorMessage } from "formik";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
 export const Title = styled.h1`
@@ -45,13 +45,7 @@ export const Input = styled(Field)`
     font-size: 16px;
   }
 `;
-export const Error = styled(ErrorMessage)`
-  color: red;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.142;
-  margin-top: 4px;
-`;
+
 export const Btn = styled.button`
   box-sizing: border-box;
   align-self: flex-end;
@@ -85,6 +79,7 @@ export const EyeVisible = styled(IoEyeOffOutline)`
   height: 20px;
   transform: translateY(-50%);
 `;
+
 export const EyeNotVisible = styled(IoEyeOutline)`
   position: absolute;
   top: 27px;
@@ -92,4 +87,8 @@ export const EyeNotVisible = styled(IoEyeOutline)`
   width: 20px;
   height: 20px;
   transform: translateY(-50%);
+`;
+export const ErrorText = styled.div`
+  color: red;
+  margin-top: 4px;
 `;

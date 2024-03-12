@@ -22,7 +22,7 @@ const AuthNav = () => {
         <LoginBtn type="button" onClick={handleLoginOpen}>
           Log In
         </LoginBtn>
-        <RegisterBtn to="register" onClick={handleRegisterOpen}>
+        <RegisterBtn type="button" onClick={handleRegisterOpen}>
           Register
         </RegisterBtn>
       </AuthContainer>

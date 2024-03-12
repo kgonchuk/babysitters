@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { baseTheme } from "../../../styles/theme";
 
 export const Overlay = styled.div`
@@ -15,11 +15,22 @@ export const Overlay = styled.div`
 `;
 export const Modal = styled.div`
   position: relative;
+  /* width: ${(props) => (props.$App ? "600px" : "566px")}; */
   width: 566px;
   max-height: 100%;
   background-color: ${baseTheme.background.white};
   border-radius: 30px;
   padding: 64px;
+  ${(props) => {
+    if (props.$AppWidth) {
+      return css`
+        width: 600px;
+      `;
+    }
+    return css`
+      width: 566px;
+    `;
+  }}
 `;
 export const CloseBtn = styled.button`
   svg {

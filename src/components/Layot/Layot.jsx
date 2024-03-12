@@ -7,7 +7,7 @@ const Layot = () => {
   return (
     <div>
       {/* <AppBar /> */}
-      <Header />
+      {/* <Header /> */}
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>

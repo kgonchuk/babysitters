@@ -5,7 +5,8 @@ import { useEffect } from "react";
 import close from "../../../assets/img/sprite.svg";
 
 const modalRoot = document.querySelector("#modal-root");
-const ModalWindow = ({ children, handleModalToggle }) => {
+
+const ModalWindow = ({ children, handleModalToggle, AppWidth }) => {
   useEffect(() => {
     const body = document.body;
     body.style.overflow = "hidden";
@@ -34,7 +35,7 @@ const ModalWindow = ({ children, handleModalToggle }) => {
 
   return createPortal(
     <Overlay onClick={handleBackdropClick}>
-      <Modal>
+      <Modal $AppWidth={AppWidth}>
         <CloseBtn onClick={handleModalToggle}>
           <svg>
             <use href={`${close}#icon-close`} />

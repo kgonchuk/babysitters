@@ -11,6 +11,7 @@ import {
   ImageBlock,
   ImageText,
   Svg,
+  Span,
 } from "./HomePage.styled";
 
 import iconArrow from "../../assets/img/sprite.svg";
@@ -20,28 +21,28 @@ import Header from "../../components/Header/Header";
 const HomePage = () => {
   return (
     <>
-      {/* <Header /> */}
       <Section>
+        <Header />
         <Wrap>
           <TextContainer>
             <Content>
               <Title>Make Life Easier for the Family:</Title>
               <Text>Find Babysitters Online for All Occasions</Text>
               <Button>
-                <StartBtn to="/">
+                <StartBtn to="/nannies">
                   Get started
-                  <span>
+                  <Span>
                     <Svg width={18} height={18}>
                       <use href={`${iconCheck}#arrow`} />
                     </Svg>
-                  </span>
+                  </Span>
                 </StartBtn>
               </Button>
             </Content>
           </TextContainer>
           <ImageContainer>
             <ImageBlock>
-              <div className="red-container">
+              <div className="right-container">
                 <span>
                   <svg width={18} height={18}>
                     <use href={`${iconArrow}#check`} />

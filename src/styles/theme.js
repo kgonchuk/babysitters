@@ -3,17 +3,14 @@ export const baseTheme = {
     primaryText: "#11101C",
     secondaryText: "rgba(17, 16, 28, 0.50)",
     borderColor: "rgba(251,251,251, 0.40)",
-    // success: "#4caf50",
-    // danger: "#f44336 ",
-
-    // bg: "#E5E4E8",
-    // font: "#19191B",
+    grayText: "#8A8A89",
   },
   background: {
     main: "#103931",
     secondaryMain: "rgba(16, 57, 49, 0.20)",
     overlay: "rgba(11, 11, 11, 0.6)",
     white: "#FBFBFB",
+    gray: "rgba(243,243,243,1)",
   },
 
   media: {

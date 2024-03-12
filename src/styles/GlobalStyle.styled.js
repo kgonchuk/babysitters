@@ -8,8 +8,8 @@ body {
   font-style: normal;
   font-size: 16px;
   color: ${baseTheme.colors.secondaryText};
-
   transition: ${baseTheme.transition};
+  /* margin: 0; */
 }
 
 

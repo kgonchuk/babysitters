@@ -20,8 +20,13 @@ export const Button = styled.button`
   font-size: 16px;
   color: ${baseTheme.background.white};
   margin-right: 8px;
+  transition:${baseTheme.transition}
   &:hover {
     background-color: ${baseTheme.background.main};
     border: 1px solid ${baseTheme.background.main};
   }
+`;
+export const UserWrap = styled.div`
+  display: flex;
+  align-items: center;
 `;

@@ -1,52 +1,70 @@
 import styled, { css } from "styled-components";
 import { baseTheme } from "../../styles/theme";
+import { NavLink } from "react-router-dom";
 
 export const HeaderContainer = styled.header`
-  /* position: absolute;
-  z-index: 10;
-  top: 32px;
-  left: 0;
-  background-color: transparent;
-  width: 100%;
-  margin-top: 0;
-  margin-right: auto; */
   ${(props) => {
-    if (props.$homepage) {
+    if (props.$BGColor) {
       return css`
-        position: absolute;
-        z-index: 10;
-        top: 32px;
-        left: 0;
-        background-color: transparent;
-        /* border-bottom: 1px solid var(--color-button-border); */
-        width: 100%;
-        margin-top: 0;
-        margin-right: auto;
+        background-color: ${baseTheme.background.main};
       `;
     }
     return css`
-      background-color: ${baseTheme.background.main};
+      position: absolute;
+      z-index: 10;
+      top: 32px;
+      left: 0;
+      background-color: transparent;
+      border-bottom: 1px solid var(--color-button-border);
     `;
   }}
-  NavLink {
-    color: ${baseTheme.background.white};
-    font-size: 24px;
-    line-height: 1.17;
-    letter-spacing: -0.48px;
-    width: 252px;
-  }
+  margin: 0 auto;
+  width: 100%;
+  /* max-width: 320px; */
 `;
 export const HeaderWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-height: 88px;
-  padding: 20px 96px;
+  padding: 20px 15px;
   color: ${baseTheme.background.white};
-  /* background-color: ${baseTheme.background.main}; */
+  @media screen and (min-width: 768px) {
+    padding: 20px 96px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 88px;
+  }
 `;
 
 export const HeaderRightSide = styled.div`
   display: flex;
   align-items: center;
+  @media screen and (min-width: 768px) {
+  }
+`;
+export const LogoNav = styled(NavLink)`
+  font-size: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+`;
+
+export const BurgerBtn = styled.div`
+  /* position: absolute;
+  top: 20px;
+  left: 270px; */
+  display: flex;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+export const UserDiv = styled.div`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
 `;

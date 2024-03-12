@@ -81,11 +81,8 @@ export const Btn = styled.button`
     background-color: ${baseTheme.background.secondaryMain};
   }
 `;
-export const Error = styled(ErrorMessage)`
+export const ErrorText = styled.div`
   color: red;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.142;
   margin-top: 4px;
 `;
 export const EyeVisible = styled(IoEyeOffOutline)`
