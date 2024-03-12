@@ -29,11 +29,13 @@ export const HeaderWrap = styled.div`
   padding: 20px 15px;
   color: ${baseTheme.background.white};
   @media screen and (min-width: 768px) {
-    padding: 20px 96px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-height: 88px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 20px 96px;
   }
 `;
 
@@ -46,7 +48,7 @@ export const HeaderRightSide = styled.div`
 export const LogoNav = styled(NavLink)`
   font-size: 18px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     font-size: 24px;
   }
 `;

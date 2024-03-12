@@ -14,8 +14,8 @@ export const CarItemContainer = styled.div`
     padding: 24px;
   }
   @media screen and (min-width: 1440px) {
-    width: 1184px;
-    margin: 0 auto;
+    /* width: 1184px; */
+    margin: 32px auto;
   }
 `;
 
@@ -55,7 +55,6 @@ export const WrapImg = styled.div`
     justify-content: center;
     width: 120px;
     height: 120px;
-    /* margin-right: 24px; */
     margin: 0 24px 0 0;
   }
 `;
@@ -72,10 +71,13 @@ export const Photo = styled.img`
 export const OnlineIcon = styled.img`
   position: absolute;
   top: 3px;
-  left: 92px;
+  left: 81px;
   width: 14px;
   border-radius: 15px;
   height: 14px;
+  @media screen and (min-width: 768px) {
+    left: 92px;
+  }
 `;
 
 export const CardInfoName = styled.div`
@@ -104,8 +106,6 @@ export const CardInfoBlock = styled.div`
   justify-content: space-between;
   margin-top: 10px;
   @media screen and (min-width: 768px) {
-    /* display: flex;
-    align-items: center; */
     margin-top: 0;
   }
 `;

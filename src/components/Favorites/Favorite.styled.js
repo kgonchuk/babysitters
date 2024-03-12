@@ -2,7 +2,13 @@ import styled from "styled-components";
 import { baseTheme } from "styles/theme";
 
 export const CardListContainer = styled.div`
-  padding: 0 128px;
+  padding: 0 20px;
+  @media screen and (min-width: 768px) {
+    padding: 0 45px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 0 128px;
+  }
 `;
 export const BtrLoadMore = styled.button`
   box-sizing: border-box;

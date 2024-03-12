@@ -59,7 +59,7 @@ export const ButtonWrapper = styled.div`
 export const Btn = styled.button`
   box-sizing: border-box;
   align-self: flex-end;
-  padding: 16px 189px;
+  padding: 16px 100px;
   font-size: 16px;
   font-weight: 500;
   margin-top: 22px;
@@ -79,6 +79,12 @@ export const Btn = styled.button`
   letter-spacing: -0.02em;
   &:hover {
     background-color: ${baseTheme.background.secondaryMain};
+  }
+  @media screen and (min-width: 768px) {
+    padding: 16px 189px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 16px 189px;
   }
 `;
 export const ErrorText = styled.div`

@@ -20,7 +20,7 @@ export const CloseBtn = styled.button`
   width: 16px;
   height: 16px;
   position: absolute;
-  top: 40px;
+  top: 24px;
   right: 28px;
   background-color: inherit;
   svg {

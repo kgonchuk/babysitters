@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { baseTheme } from "../../styles/theme";
-export const AuthContainer = styled.div``;
+export const AuthContainer = styled.div`
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
+`;
 export const LoginBtn = styled.button`
   width: 124px;
   height: 48px;

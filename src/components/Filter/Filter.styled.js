@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { baseTheme } from "../../styles/theme";
 export const FilterContainer = styled.div`
-  padding: 20px 15px;
   position: relative;
   display: inline-block;
+
+  padding: 20px 20px;
   @media screen and (min-width: 768px) {
-    padding: 64px 128px 32px;
+    padding: 45px 45px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 64px 0 32px 128px;
   }
 `;
 export const FilterTitle = styled.h1`

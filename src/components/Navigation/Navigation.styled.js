@@ -11,6 +11,7 @@ export const Nav = styled.ul`
     display: flex;
     gap: 40px;
     margin-right: 92px;
+    align-items: center;
   }
 `;
 export const NavLinkStyle = styled(NavLink)`
@@ -39,13 +40,13 @@ export const NavLinkStyle = styled(NavLink)`
 export const Home = styled.li`
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
 `;
 export const Catalog = styled.li`
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
 `;
 export const Favorite = styled.li`

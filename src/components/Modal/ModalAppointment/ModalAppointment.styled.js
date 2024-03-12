@@ -50,7 +50,7 @@ export const Input = styled(Field)`
 export const Btn = styled.button`
   box-sizing: border-box;
   align-self: flex-end;
-  padding: 16px 189px;
+  padding: 16px 100px;
   font-size: 16px;
   font-weight: 500;
   margin-top: 22px;
@@ -70,6 +70,14 @@ export const Btn = styled.button`
   letter-spacing: -0.02em;
   &:hover {
     background-color: ${baseTheme.background.secondaryMain};
+  }
+  @media screen and (min-width: 768px) {
+    /* padding: 16px 180px; */
+    width: 100%;
+  }
+  @media screen and (min-width: 1440px) {
+    /* padding: 16px 189px; */
+    width: 100%;
   }
 `;
 export const ProfileWrap = styled.div`
@@ -100,7 +108,8 @@ export const ProfileInfo = styled.div`
 `;
 
 export const ModalTextArea = styled.textarea`
-  width: 472px;
+  /* width: 246px; */
+  width: 100%;
   height: 116px;
   padding: 16px 18px;
   font-size: 16px;
@@ -118,6 +127,14 @@ export const ModalTextArea = styled.textarea`
   }
   &::placeholder {
     color: ${baseTheme.colors.primaryText};
+  }
+  @media screen and (min-width: 768px) {
+    /* width: 373px; */
+    width: 100%;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 472px;
+    /* width: 100%; */
   }
 `;
 export const ErrorText = styled.div`
@@ -142,9 +159,15 @@ export const DropdownButton = styled.button`
   border-radius: 12px;
   background-color: ${baseTheme.background.white};
   cursor: pointer;
-  width: 232px;
+  width: 120px;
   height: 55px;
   border: 1px solid rgba(18, 20, 23, 0.1);
+  @media screen and (min-width: 768px) {
+    width: 180px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 232px;
+  }
 `;
 export const DropdownList = styled.ul`
   z-index: 100;

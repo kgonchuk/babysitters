@@ -15,22 +15,38 @@ export const Overlay = styled.div`
 `;
 export const Modal = styled.div`
   position: relative;
-  /* width: ${(props) => (props.$App ? "600px" : "566px")}; */
-  width: 566px;
+  width: 310px;
   max-height: 100%;
   background-color: ${baseTheme.background.white};
   border-radius: 30px;
-  padding: 64px;
-  ${(props) => {
-    if (props.$AppWidth) {
+  padding: 32px;
+
+  @media screen and (min-width: 768px) {
+    padding: 64px;
+    ${(props) => {
+      if (props.$AppWidth) {
+        return css`
+          width: 500px;
+        `;
+      }
       return css`
-        width: 600px;
+        width: 566px;
       `;
-    }
-    return css`
-      width: 566px;
-    `;
-  }}
+    }}
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 64px;
+    ${(props) => {
+      if (props.$AppWidth) {
+        return css`
+          width: 600px;
+        `;
+      }
+      return css`
+        width: 566px;
+      `;
+    }}
+  }
 `;
 export const CloseBtn = styled.button`
   svg {
