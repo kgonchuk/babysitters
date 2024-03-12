@@ -6,20 +6,26 @@ export const Title = styled.h1`
   font-size: 20px;
   color: ${baseTheme.colors.primaryText};
   letter-spacing: -0.02em;
-  line-height: 48px;
-  margin-bottom: 10px;
+
   @media screen and (min-width: 768px) {
     font-size: 40px;
     margin-bottom: 20px;
   }
+  @media screen and (min-width: 1440px) {
+    font-size: 40px;
+    margin-bottom: 20px;
+    line-height: 48px;
+    margin-bottom: 10px;
+  }
 `;
 export const Text = styled.p`
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   @media screen and (min-width: 768px) {
-    font-size: 12px;
-    margin-bottom: 20px;
+    font-size: 16px;
+
+    margin-bottom: 40px;
   }
 `;
 export const ModalWrapper = styled.div``;
@@ -71,7 +77,7 @@ export const Btn = styled.button`
   padding: 16px 100px;
   font-size: 16px;
   font-weight: 500;
-  margin-top: 22px;
+  margin-top: 11px;
   letter-spacing: -0.01em;
   text-decoration: none;
   border-radius: 30px;
@@ -92,6 +98,7 @@ export const Btn = styled.button`
   @media screen and (min-width: 768px) {
     /* padding: 16px 180px; */
     width: 100%;
+    margin-top: 22px;
   }
   @media screen and (min-width: 1440px) {
     /* padding: 16px 189px; */
