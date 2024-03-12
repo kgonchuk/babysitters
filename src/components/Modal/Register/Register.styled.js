@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { baseTheme } from "../../../styles/theme";
-import { ErrorMessage, Field } from "formik";
+import { Field } from "formik";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { IoEyeOutline } from "react-icons/io5";
 

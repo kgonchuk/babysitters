@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { baseTheme } from "../../../styles/theme";
-import { Field, ErrorMessage } from "formik";
+import { Field } from "formik";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
 export const Title = styled.h1`

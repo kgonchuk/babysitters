@@ -61,19 +61,3 @@ const HomePage = () => {
   );
 };
 export default HomePage;
-{
-  /* <HeroContainer>
-<TextContainer>
-  <h1>Make Life Easier for the Family:</h1>
-  <p>Find Babysitters Online for All Occasions</p>
-  <button>
-    Get started
-    <span>
-      <svg width={18} height={18}>
-        <use href={`${iconArrow}#arrow`} />
-      </svg>
-    </span>
-  </button>
-</TextContainer>
-</HeroContainer> */
-}

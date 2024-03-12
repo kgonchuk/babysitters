@@ -1,9 +1,7 @@
-import { NavLink } from "react-router-dom";
 import UserNav from "../../components/UserNav/UserNav";
 import Navigation from "../Navigation/Navigation";
 import {
   BurgerBtn,
-  BurgerWrap,
   HeaderContainer,
   HeaderRightSide,
   HeaderWrap,
@@ -14,7 +12,7 @@ import AuthNav from "../../components/AuthNav/AuthNav";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
-import ModalWindow from "components/Modal/ModalWindow/ModalWindow";
+
 import MobileModal from "components/Modal/MobileModal/MobileModal";
 import { ReactComponent as MenuIcon } from "../../assets/img/menu.svg";
 

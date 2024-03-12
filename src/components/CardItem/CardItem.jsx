@@ -37,7 +37,6 @@ import locationIcon from "../../assets/img/map-pin.svg";
 import ratingIcon from "../../assets/img/Star 2.svg";
 import heartIcon from "../../assets/img/heart.svg";
 import heartChooseIcon from "../../assets/img/heart-choose.svg";
-import { date } from "yup";
 import ModalWindow from "components/Modal/ModalWindow/ModalWindow";
 import ModalAppointment from "components/Modal/ModalAppointment/ModalAppointment";
 import Notiflix from "notiflix";
