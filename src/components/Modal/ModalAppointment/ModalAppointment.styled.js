@@ -3,34 +3,48 @@ import { baseTheme } from "../../../styles/theme";
 import { Field } from "formik";
 
 export const Title = styled.h1`
-  font-size: 40px;
+  font-size: 20px;
   color: ${baseTheme.colors.primaryText};
   letter-spacing: -0.02em;
   line-height: 48px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
 `;
 export const Text = styled.p`
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
 `;
 export const ModalWrapper = styled.div``;
 export const FormWrapper = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
 `;
 export const Wrapper = styled.div`
   display: flex;
   gap: 8px;
 `;
 export const InputWrapper = styled.div`
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   position: relative;
   width: 100%;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 18px;
+  }
 `;
 export const Input = styled(Field)`
   width: 100%;
-  padding: 16px 18px;
-  font-size: 16px;
+  padding: 10px 12px;
+  font-size: 12px;
   color: ${baseTheme.colors.primaryText};
   font-weight: 400;
   line-height: 1.375;
@@ -45,6 +59,10 @@ export const Input = styled(Field)`
   }
   &::placeholder {
     color: ${baseTheme.colors.primaryText};
+  }
+  @media screen and (min-width: 768px) {
+    padding: 16px 18px;
+    font-size: 16px;
   }
 `;
 export const Btn = styled.button`
@@ -83,7 +101,10 @@ export const Btn = styled.button`
 export const ProfileWrap = styled.div`
   display: flex;
   gap: 14px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
 `;
 export const ProfileImg = styled.div`
   img {
@@ -110,9 +131,9 @@ export const ProfileInfo = styled.div`
 export const ModalTextArea = styled.textarea`
   /* width: 246px; */
   width: 100%;
-  height: 116px;
+  height: 60px;
   padding: 16px 18px;
-  font-size: 16px;
+  font-size: 12px;
   color: ${baseTheme.colors.primaryText};
   font-weight: 400;
   line-height: 1.375;
@@ -134,6 +155,8 @@ export const ModalTextArea = styled.textarea`
   }
   @media screen and (min-width: 1440px) {
     width: 472px;
+    height: 116px;
+    font-size: 16px;
     /* width: 100%; */
   }
 `;
@@ -154,19 +177,22 @@ export const DropdownButton = styled.button`
   display: flex;
   padding: 16px 18px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   align-items: center;
   border-radius: 12px;
   background-color: ${baseTheme.background.white};
   cursor: pointer;
-  width: 120px;
-  height: 55px;
+  width: 118px;
+  height: 38px;
   border: 1px solid rgba(18, 20, 23, 0.1);
+
   @media screen and (min-width: 768px) {
     width: 180px;
   }
   @media screen and (min-width: 1440px) {
     width: 232px;
+    width: 120px;
+    height: 55px;
   }
 `;
 export const DropdownList = styled.ul`
@@ -185,6 +211,7 @@ export const DropdownList = styled.ul`
   height: 180px;
   overflow-y: auto;
   display: ${(props) => (props.$isOpen ? "block" : "none")};
+  font-size: 16px;
 `;
 
 export const TextDrop = styled.p`
@@ -195,6 +222,7 @@ export const DropdownItem = styled.li`
   margin-bottom: 8px;
   color: rgba(25, 26, 21, 0.3);
   cursor: pointer;
+  font-size: 16px;
 
   &:hover {
     color: rgb(25, 26, 21);
