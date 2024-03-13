@@ -19,20 +19,19 @@ export const register = createAsyncThunk(
         email,
         password
       );
-      await updateProfile(userCredentials.user, { name: name });
+      await updateProfile(userCredentials.user, { displayName: name });
       const user = auth.currentUser;
       const dataUser = {
         uid: user.uid,
-        name: user.name,
+        name: user.displayName,
         email: user.email,
         accessToken: user.stsTokenManager.accessToken,
       };
-      Notiflix.Notify.success("Wellcome to Nannies.Sevice!");
       return dataUser;
     } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error(`Error: ${errorCode}`, errorMessage);
+      const dataError = { code: error.code, message: error.message };
+      console.error(`Error: ${dataError}`);
+      return thunkAPI.rejectWithValue(dataError);
     }
   }
 );
@@ -50,7 +49,7 @@ export const logIn = createAsyncThunk(
       const user = userCredentials.user;
       const dataUser = {
         uid: user.uid,
-        name: user.name,
+        name: user.displayName,
         email: user.email,
         accessToken: user.stsTokenManager.accessToken,
       };
@@ -58,9 +57,9 @@ export const logIn = createAsyncThunk(
       Notiflix.Notify.success("Wellcome to Nannies.Sevice!");
       return dataUser;
     } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error(`Error: ${errorCode}`, errorMessage);
+      const dataError = { code: error.code, message: error.message };
+      console.error(`Error: ${dataError}`);
+      return thunkAPI.rejectWithValue(dataError);
     }
   }
 );
@@ -69,9 +68,9 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
     await signOut(auth);
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.error(`Error: ${errorCode}`, errorMessage);
+    const dataError = { code: error.code, message: error.message };
+    console.error(`Error: ${dataError}`);
+    return thunkAPI.rejectWithValue(dataError);
   }
 });
 
@@ -85,7 +84,7 @@ export const fetchCurrentUser = createAsyncThunk(
             reject("Unable to fetch user");
           } else {
             const dataUser = {
-              name: user.name,
+              name: user.displayName,
               email: user.email,
               accessToken: user.accessToken,
             };

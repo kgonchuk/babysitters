@@ -20,6 +20,7 @@ export const Button = styled.button`
   font-size: 16px;
   color: ${baseTheme.background.white};
   margin-right: 8px;
+  margin-left: 8px;
   transition:${baseTheme.transition}
   &:hover {
     background-color: ${baseTheme.background.main};
