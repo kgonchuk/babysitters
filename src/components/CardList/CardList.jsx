@@ -3,17 +3,17 @@ import { db } from "../../firebase/firebase";
 import { useEffect, useState } from "react";
 import { get, ref } from "firebase/database";
 import { nanoid } from "nanoid";
-import { BtrLoadMore, CardListContainer } from "./CardLisr.styled";
+import { BtrLoadMore, CardListContainer } from "./CardList.styled";
 
 const CardList = ({ filterOption }) => {
   const [nannies, setNannies] = useState([]);
-  const [visiblePsycho, setVisiblePsycho] = useState(3);
+  const [visibleNanny, setVisibleNanny] = useState(3);
 
   useEffect(() => {
-    const fetchPsycho = async () => {
+    const fetchNannies = async () => {
       try {
-        const psychosRef = ref(db, "/");
-        const snapshot = await get(psychosRef);
+        const nannyRef = ref(db, "/");
+        const snapshot = await get(nannyRef);
 
         console.log("Data:", snapshot.val());
 
@@ -25,9 +25,9 @@ const CardList = ({ filterOption }) => {
             })
           );
           console.log(nannyArray);
-          let filteredPsycho = applyFilter(nannyArray, filterOption);
+          let filteredNanny = applyFilter(nannyArray, filterOption);
 
-          setNannies(filteredPsycho.slice(0, visiblePsycho));
+          setNannies(filteredNanny.slice(0, visibleNanny));
         } else {
           console.log("Помилка");
         }
@@ -36,10 +36,11 @@ const CardList = ({ filterOption }) => {
       }
     };
 
-    fetchPsycho();
-  }, [filterOption, visiblePsycho]);
+    fetchNannies();
+  }, [filterOption, visibleNanny]);
+
   const handleLoadMore = () => {
-    setVisiblePsycho((prevVisiblePsycho) => prevVisiblePsycho + 3);
+    setVisibleNanny((prevVisibleNanny) => prevVisibleNanny + 3);
   };
 
   const applyFilter = (nannyArray, option) => {
@@ -49,13 +50,15 @@ const CardList = ({ filterOption }) => {
       case "Z to A":
         return nannyArray.sort((a, b) => b.name.localeCompare(a.name));
       case "Less than 10$":
-        return nannyArray.filter((nanny) => nanny.price_per_hour < 10);
+        return nannyArray.filter((nanny) => nanny.price_per_hour <= 10);
       case "Greater than 10$":
-        return nannyArray.filter((nanny) => nanny.price_per_hour > 10);
+        return nannyArray.filter((nanny) => nanny.price_per_hour >= 10);
       case "Popular":
-        return nannyArray.filter((nanny) => nanny.rating > 4);
-      case "Non popular":
-        return nannyArray.filter((nanny) => nanny.rating <= 4);
+        return nannyArray.sort((a, b) => b.rating - a.rating);
+      case "Not popular":
+        return nannyArray.sort((a, b) => a.rating - b.rating);
+      case "Show all":
+        return nannyArray;
       default:
         return nannyArray;
     }

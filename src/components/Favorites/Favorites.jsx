@@ -1,54 +1,54 @@
 import CardItem from "components/CardItem/CardItem";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BtrLoadMore, CardListContainer } from "./Favorite.styled";
 
 const Favorites = ({ filterOption }) => {
   const [favoriteCards, setFavoriteCards] = useState([]);
   const [visibleFavoriteCards, setVisibleFavoriteCards] = useState(1);
 
-  useEffect(() => {
-    const fetchFavorites = async () => {
-      try {
-        const userId = auth.currentUser?.uid;
-        if (userId) {
-          const storedFavorites =
-            (await JSON.parse(localStorage.getItem(`favorites-${userId}`))) ||
-            [];
-          setFavoriteCards(storedFavorites);
-          console.log(storedFavorites);
-        }
-      } catch (error) {
-        console.error("Error reading from localStorage:", error);
+  const fetchData = useCallback(() => {
+    try {
+      const userId = auth.currentUser?.uid;
+      if (userId) {
+        const storedFavorites =
+          JSON.parse(localStorage.getItem(`favorites-${userId}`)) || [];
+        setFavoriteCards(storedFavorites);
       }
-    };
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }, []);
 
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        fetchFavorites();
+        fetchData();
       }
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [fetchData]);
 
-  const applyFilter = (cards, option) => {
+  const applyFilter = (nannyArray, option) => {
     switch (option) {
       case "A to Z":
-        return cards.slice().sort((a, b) => a.name.localeCompare(b.name));
+        return nannyArray.slice().sort((a, b) => a.name.localeCompare(b.name));
       case "Z to A":
-        return cards.sort((a, b) => b.name.localeCompare(a.name));
+        return nannyArray.sort((a, b) => b.name.localeCompare(a.name));
       case "Less than 10$":
-        return cards.filter((nanny) => nanny.price_per_hour < 10);
+        return nannyArray.filter((nanny) => nanny.price_per_hour <= 10);
       case "Greater than 10$":
-        return cards.filter((nanny) => nanny.price_per_hour > 10);
+        return nannyArray.filter((nanny) => nanny.price_per_hour >= 10);
       case "Popular":
-        return cards.filter((nanny) => nanny.rating > 4);
-      case "Non popular":
-        return cards.filter((nanny) => nanny.rating <= 4);
+        return nannyArray.sort((a, b) => b.rating - a.rating);
+      case "Not popular":
+        return nannyArray.sort((a, b) => a.rating - b.rating);
+      case "Show all":
+        return nannyArray;
       default:
-        return cards;
+        return nannyArray;
     }
   };
 

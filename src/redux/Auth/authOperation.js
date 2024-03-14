@@ -29,9 +29,9 @@ export const register = createAsyncThunk(
       };
       return dataUser;
     } catch (error) {
-      const dataError = { code: error.code, message: error.message };
-      console.error(`Error: ${dataError}`);
-      return thunkAPI.rejectWithValue(dataError);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error(`Error: ${errorCode}`, errorMessage);
     }
   }
 );
@@ -57,9 +57,9 @@ export const logIn = createAsyncThunk(
       Notiflix.Notify.success("Wellcome to Nannies.Sevice!");
       return dataUser;
     } catch (error) {
-      const dataError = { code: error.code, message: error.message };
-      console.error(`Error: ${dataError}`);
-      return thunkAPI.rejectWithValue(dataError);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error(`Error: ${errorCode}`, errorMessage);
     }
   }
 );
@@ -68,9 +68,9 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
     await signOut(auth);
   } catch (error) {
-    const dataError = { code: error.code, message: error.message };
-    console.error(`Error: ${dataError}`);
-    return thunkAPI.rejectWithValue(dataError);
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error(`Error: ${errorCode}`, errorMessage);
   }
 });
 

@@ -2,12 +2,10 @@ import { useState } from "react";
 import {
   ArrowButton,
   ArrowDown,
-  ArrowImg,
   ArrowUp,
   FilterContainer,
   FilterItem,
   FilterList,
-  FilterSection,
   FilterTitle,
 } from "./Filter.styled";
 import arrowUp from "../../assets/img/sprite.svg";

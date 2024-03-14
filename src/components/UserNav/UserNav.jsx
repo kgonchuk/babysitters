@@ -2,8 +2,6 @@ import { Button, UserContainer, UserData, UserWrap } from "./UserNav.styled";
 import userImg from "../../assets/img/image.svg";
 import { useState } from "react";
 import Notiflix from "notiflix";
-import { useSelector } from "react-redux";
-import { selectUserName } from "../../redux/selectors";
 
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
@@ -11,7 +9,6 @@ import { useEffect } from "react";
 
 const UserNav = () => {
   const [authUser, setAuthUser] = useState(null);
-  const name = useSelector(selectUserName);
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -42,7 +39,7 @@ const UserNav = () => {
         <UserWrap>
           <UserData>
             <img src={userImg} alt="userImg" />
-            <p>{name}</p>
+            <p>{authUser.displayName}</p>
           </UserData>
           <Button type="button" onClick={logOut}>
             Log Out
