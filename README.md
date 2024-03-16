@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+                                       Nanny.Services.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Nanny Services project! This project is a web application that offers users to use the services of Nannies.
 
-## Available Scripts
+Open <a href='https://kgonchuk.github.io/babysitters/'>Nanny.services</a> to view the website.
 
-In the project directory, you can run:
+Features
+Creating an account and saving user's data.
+View a list of nannies and their details.
+Filter and sort nannies based on various criteria.
+Mark nannies as favorites for quick access.
+Navigate through multiple pages of nannies listings.
 
-### `npm start`
+Technologies Used
+React: Frontend framework for building user interfaces.
+Redux Toolkit: State management library for managing application state.
+React Router: Library for routing in React applications.
+Firebase Realtime Database: Cloud-hosted NoSQL database provided by Firebase.
+Firebase Authentication: Firebase service for user authentication and authorization.
+Formik: Library for building forms in React with ease.
+Yup: JavaScript schema builder for value parsing and validation.
+Redux Persist: Library for persisting Redux state to storage.
+Styled Components: Library for styling React components with CSS and dynamic styles.
+React Select: Library for building custom dropdowns and select inputs in React.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Test Task
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Create an application for a company that offers to use the services of babysitters. The application consists of three pages:
+Home Page: This page displays the company's advantages and includes a link encouraging users to start using the application. Clicking the link redirects users to the "Nannies" page.
+Nannies Page: This page contains list of nannies that the user can sort alphabetically - by ascending or descending, by price - from lowest price to highest, by popularity - from lowest rating or from the highest.
+Favorites Page: This private page displays nannies that the user has added to their favorites.
 
-### `npm test`
+Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get started with the project, follow these steps:
 
-### `npm run build`
+Clone the repository: git clone https://github.com/kgonchuk/babysitters.git cd babysitters
+Install dependencies: npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Start the development server: npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Open your browser and navigate to http://localhost:3000 to view the application.
+Connect With Me
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Connect with me at <a href='www.linkedin.com/in/kateryna-chubach-365107292'>LinkedIn</a>
+| <a href='https://github.com/kgonchuk'>GitHub</a>.
+Enjoy using it!
