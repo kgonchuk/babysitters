@@ -12,16 +12,8 @@ Mark nannies as favorites for quick access.
 Navigate through multiple pages of nannies listings.
 
 Technologies Used
-React: Frontend framework for building user interfaces.
-Redux Toolkit: State management library for managing application state.
-React Router: Library for routing in React applications.
-Firebase Realtime Database: Cloud-hosted NoSQL database provided by Firebase.
-Firebase Authentication: Firebase service for user authentication and authorization.
-Formik: Library for building forms in React with ease.
-Yup: JavaScript schema builder for value parsing and validation.
-Redux Persist: Library for persisting Redux state to storage.
-Styled Components: Library for styling React components with CSS and dynamic styles.
-React Select: Library for building custom dropdowns and select inputs in React.
+
+<ol><li>React: Frontend framework for building user interfaces.</li><li>Redux Toolkit: State management library for managing application state.</li><li>React Router: Library for routing in React applications.</li><li>Firebase Realtime Database: Cloud-hosted NoSQL database provided by Firebase.</li><li>Firebase Authentication: Firebase service for user authentication and authorization.</li><li>Formik: Library for building forms in React with ease.</li><li>Yup: JavaScript schema builder for value parsing and validation.</li><li>Redux Persist: Library for persisting Redux state to storage.</li><li>Styled Components: Library for styling React components with CSS and dynamic styles.</li><li>React Select: Library for building custom dropdowns and select inputs in React.</li></ol>
 
 Test Task
 
