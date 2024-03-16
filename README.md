@@ -26,9 +26,8 @@ React Select: Library for building custom dropdowns and select inputs in React.
 Test Task
 
 Create an application for a company that offers to use the services of babysitters. The application consists of three pages:
-Home Page: This page displays the company's advantages and includes a link encouraging users to start using the application. Clicking the link redirects users to the "Nannies" page.
-Nannies Page: This page contains list of nannies that the user can sort alphabetically - by ascending or descending, by price - from lowest price to highest, by popularity - from lowest rating or from the highest.
-Favorites Page: This private page displays nannies that the user has added to their favorites.
+
+<ul><li>Home Page: This page displays the company's advantages and includes a link encouraging users to start using the application. Clicking the link redirects users to the "Nannies" page.</li><li>Nannies Page: This page contains list of nannies that the user can sort alphabetically - by ascending or descending, by price - from lowest price to highest, by popularity - from lowest rating or from the highest.</li><li>Favorites Page: This private page displays nannies that the user has added to their favorites.</li></ul>
 
 Getting Started
 
