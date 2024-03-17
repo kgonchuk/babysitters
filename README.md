@@ -1,5 +1,4 @@
-                                       Nanny.Services.
-
+<h1>Nanny.Services.</h1>
 Welcome to the Nanny Services project! This project is a web application that offers users to use the services of Nannies.
 
 Open <a href='https://kgonchuk.github.io/babysitters/'>Nanny.services</a> to view the website.

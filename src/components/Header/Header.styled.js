@@ -33,6 +33,7 @@ export const HeaderWrap = styled.div`
     align-items: center;
     justify-content: space-between;
     max-height: 88px;
+    padding: 20px 96px;
   }
   @media screen and (min-width: 1440px) {
     padding: 20px 96px;
@@ -54,9 +55,6 @@ export const LogoNav = styled(NavLink)`
 `;
 
 export const BurgerBtn = styled.div`
-  /* position: absolute;
-  top: 20px;
-  left: 270px; */
   display: flex;
 
   @media screen and (min-width: 768px) {

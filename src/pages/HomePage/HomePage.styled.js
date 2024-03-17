@@ -12,7 +12,6 @@ export const Section = styled.section`
 
 export const Wrap = styled.div`
   position: relative;
-  /* max-width: 1376px; */
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -88,18 +87,20 @@ export const Button = styled.button`
   border: 1px solid ${baseTheme.colors.borderColor};
   background-color: inherit;
   color: ${baseTheme.background.white};
-
   fill: currentColor;
+  transition: ${baseTheme.transition};
   span {
     margin-left: 8px;
+  }
+  svg {
+    fill: ${baseTheme.background.white};
+    transition: ${baseTheme.transition};
   }
   transition: ${baseTheme.transition};
   &:hover {
     background-color: ${baseTheme.background.white};
     color: ${baseTheme.background.main};
     svg {
-      width: 12px;
-      height: 12px;
       fill: ${baseTheme.background.main};
       transform: rotate(53deg);
     }

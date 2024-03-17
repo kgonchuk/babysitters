@@ -4,6 +4,9 @@ export const AuthContainer = styled.div`
   @media screen and (max-width: 767px) {
     text-align: center;
   }
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 `;
 export const LoginBtn = styled.button`
   width: 124px;
@@ -20,6 +23,14 @@ export const LoginBtn = styled.button`
     color: ${baseTheme.background.white};
     border: 1px solid ${baseTheme.background.main};
   }
+  @media screen and (min-width: 768px) {
+    width: 104px;
+    height: 48px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 124px;
+    height: 48px;
+  }
 `;
 
 export const RegisterBtn = styled.button`
@@ -33,5 +44,13 @@ export const RegisterBtn = styled.button`
   &:hover {
     background-color: ${baseTheme.background.white};
     color: ${baseTheme.background.main};
+  }
+  @media screen and (min-width: 768px) {
+    width: 148px;
+    height: 48px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 168px;
+    height: 48px;
   }
 `;

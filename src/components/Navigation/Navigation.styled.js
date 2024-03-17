@@ -3,11 +3,13 @@ import styled from "styled-components";
 import { baseTheme } from "../../styles/theme";
 
 export const Nav = styled.ul`
-  /* display: flex;
-  gap: 40px;
-  margin-right: 92px; */
-
   @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 20px;
+    margin-right: 92px;
+    align-items: center;
+  }
+  @media screen and (min-width: 1440px) {
     display: flex;
     gap: 40px;
     margin-right: 92px;
