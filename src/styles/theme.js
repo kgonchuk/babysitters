@@ -12,12 +12,5 @@ export const baseTheme = {
     white: "#FBFBFB",
     gray: "rgba(243,243,243,1)",
   },
-
-  // media: {
-  //   extraLarge: "(max-width: 1440px)",
-  //   large: "(max-width: 960px)",
-  //   medium: "(max-width: 720px)",
-
-  // },
   transition: "all 250ms cubic-bezier(0.53, 0.5, 0.53, 0.52)",
 };

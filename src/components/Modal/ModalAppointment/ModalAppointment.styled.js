@@ -96,12 +96,10 @@ export const Btn = styled.button`
     background-color: ${baseTheme.background.secondaryMain};
   }
   @media screen and (min-width: 768px) {
-    /* padding: 16px 180px; */
     width: 100%;
     margin-top: 22px;
   }
   @media screen and (min-width: 1440px) {
-    /* padding: 16px 189px; */
     width: 100%;
   }
 `;
@@ -136,7 +134,6 @@ export const ProfileInfo = styled.div`
 `;
 
 export const ModalTextArea = styled.textarea`
-  /* width: 246px; */
   width: 100%;
   height: 60px;
   padding: 16px 18px;
@@ -157,14 +154,12 @@ export const ModalTextArea = styled.textarea`
     color: ${baseTheme.colors.primaryText};
   }
   @media screen and (min-width: 768px) {
-    /* width: 373px; */
     width: 100%;
   }
   @media screen and (min-width: 1440px) {
     width: 472px;
     height: 116px;
     font-size: 16px;
-    /* width: 100%; */
   }
 `;
 export const ErrorText = styled.div`
@@ -195,11 +190,11 @@ export const DropdownButton = styled.button`
 
   @media screen and (min-width: 768px) {
     width: 180px;
+    height: 55px;
   }
   @media screen and (min-width: 1440px) {
     width: 232px;
-    width: 120px;
-    height: 55px;
+    /* width: 120px; */
   }
 `;
 export const DropdownList = styled.ul`
