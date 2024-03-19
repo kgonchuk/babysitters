@@ -10,6 +10,7 @@ export const UserData = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
+  color: ${baseTheme.background.white};
 `;
 export const Button = styled.button`
   width: 124px;

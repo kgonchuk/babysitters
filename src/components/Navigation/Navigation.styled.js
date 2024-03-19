@@ -23,18 +23,31 @@ export const NavLinkStyle = styled(NavLink)`
   line-height: 1.25;
   letter-spacing: -0.16px;
   transition: ${baseTheme.transition};
-
+  &.active {
+    &::after {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+      background-color: ${baseTheme.background.white};
+      /* margin: 4px auto; */
+      transform: translateX(-50%);
+      margin-top: 4px;
+      margin-left: 30px;
+    }
+  }
   @media screen and (min-width: 768px) {
     &.active {
       &::after {
-        content: "";
+        /* content: "";
         display: block;
         width: 8px;
         height: 8px;
         border-radius: 100%;
-        background-color: ${baseTheme.background.white};
+        background-color: ${baseTheme.background.white}; */
         margin: 4px auto;
-        transform: translateX(-50%);
+        /* transform: translateX(-50%); */
       }
     }
   }

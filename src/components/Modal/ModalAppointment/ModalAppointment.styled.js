@@ -24,7 +24,6 @@ export const Text = styled.p`
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
     font-size: 16px;
-
     margin-bottom: 40px;
   }
 `;
@@ -194,7 +193,6 @@ export const DropdownButton = styled.button`
   }
   @media screen and (min-width: 1440px) {
     width: 232px;
-    /* width: 120px; */
   }
 `;
 export const DropdownList = styled.ul`
@@ -208,12 +206,18 @@ export const DropdownList = styled.ul`
   padding: 16px;
   position: absolute;
   top: 90%;
-  left: 80px;
-  width: 151px;
+  left: 27px;
+  width: 92px;
   height: 180px;
   overflow-y: auto;
   display: ${(props) => (props.$isOpen ? "block" : "none")};
   font-size: 16px;
+  @media screen and (min-width: 768px) {
+    width: 151px;
+  }
+  @media screen and (min-width: 1440px) {
+    left: 82px;
+  }
 `;
 
 export const TextDrop = styled.p`

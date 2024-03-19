@@ -15,7 +15,7 @@ const CardList = ({ filterOption }) => {
         const nannyRef = ref(db, "/");
         const snapshot = await get(nannyRef);
 
-        console.log("Data:", snapshot.val());
+        // console.log("Data:", snapshot.val());
 
         if (snapshot.exists()) {
           const nannyArray = Object.entries(snapshot.val()).map(
@@ -24,7 +24,7 @@ const CardList = ({ filterOption }) => {
               ...data,
             })
           );
-          console.log(nannyArray);
+          // console.log(nannyArray);
           let filteredNanny = applyFilter(nannyArray, filterOption);
 
           setNannies(filteredNanny.slice(0, visibleNanny));
@@ -50,9 +50,9 @@ const CardList = ({ filterOption }) => {
       case "Z to A":
         return nannyArray.sort((a, b) => b.name.localeCompare(a.name));
       case "Less than 10$":
-        return nannyArray.filter((nanny) => nanny.price_per_hour <= 10);
+        return nannyArray.filter((nanny) => nanny.price_per_hour <= 18);
       case "Greater than 10$":
-        return nannyArray.filter((nanny) => nanny.price_per_hour >= 10);
+        return nannyArray.filter((nanny) => nanny.price_per_hour >= 18);
       case "Popular":
         return nannyArray.sort((a, b) => b.rating - a.rating);
       case "Not popular":

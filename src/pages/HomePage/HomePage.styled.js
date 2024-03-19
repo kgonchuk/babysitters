@@ -157,9 +157,8 @@ export const ImageText = styled.div`
   gap: 6px;
   color: ${baseTheme.background.secondaryText};
   & .text {
-    font-family: "HelveticaNeue-400";
     font-size: 12px;
-    font-weight: 400;
+    color: ${baseTheme.colors.secondaryText};
     @media screen and (min-width: 768px) {
       font-size: 16px;
     }
@@ -168,6 +167,7 @@ export const ImageText = styled.div`
     font-family: "HelveticaNeue-500";
     font-size: 16px;
     font-weight: 700;
+    color: ${baseTheme.colors.primaryText};
     @media screen and (min-width: 768px) {
       font-size: 24px;
     }

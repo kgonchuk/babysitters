@@ -150,7 +150,7 @@ const CardItem = ({ nanny }) => {
                 </InfoItem>
                 <InfoItem>
                   <img src={ratingIcon} alt="rating-icon" />
-                  <InfoItemText>Rating:{nanny.rating}</InfoItemText>
+                  <InfoItemText>Rating: {nanny.rating}</InfoItemText>
                 </InfoItem>
                 <InfoItem>
                   <InfoItemText>

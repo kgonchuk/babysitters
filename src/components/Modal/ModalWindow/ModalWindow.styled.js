@@ -14,6 +14,7 @@ export const Overlay = styled.div`
   z-index: 1200;
 `;
 export const Modal = styled.div`
+  overflow-y: auto;
   position: relative;
   width: 310px;
   max-height: 100%;

@@ -143,31 +143,6 @@ const ModalAppointment = ({ handleModalToggle, nanny }) => {
                 ) : null}
                 <ErrorMessage name="address" />
               </InputWrapper>
-              {/* <InputWrapper>
-                <div>
-                  <Selected
-                    id="time"
-                    name="time"
-                    onChange={formik.handleChange}
-                    value={formik.values.time}
-                  >
-                    <img src={clockIcon} alt="clock" />
-                    <option value="">00:00</option>
-                    {[...Array(24 * 2)].map((_, index) => {
-                      const hours = Math.floor(index / 2);
-                      const minutes = index % 2 === 0 ? "00" : "30";
-                      const formattedTime = `${hours
-                        .toString()
-                        .padStart(2, "0")}:${minutes}`;
-                      return (
-                        <option key={formattedTime} value={formattedTime}>
-                          {formattedTime}
-                        </option>
-                      );
-                    })}
-                  </Selected>
-                </div>
-              </InputWrapper> */}
 
               <DropdownContainer>
                 <DropdownButton
