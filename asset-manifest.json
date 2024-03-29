@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/babysitters/static/css/main.be89dc03.css",
-    "main.js": "/babysitters/static/js/main.8a9b608c.js",
+    "main.js": "/babysitters/static/js/main.baa9b954.js",
     "static/media/Hero1.jpg": "/babysitters/static/media/Hero1.b928aa4e7c3ef9f5e602.jpg",
     "static/media/HelveticaNeue Regular.ttf": "/babysitters/static/media/HelveticaNeue Regular.fe4c68c768ad00e80434.ttf",
     "static/media/HelveticaNeue Bold.ttf": "/babysitters/static/media/HelveticaNeue Bold.61acdee6f288cddccf23.ttf",
@@ -15,10 +15,10 @@
     "static/media/menu.svg": "/babysitters/static/media/menu.d7f0a233c177f44e2259011efb40c466.svg",
     "static/media/eclips.svg": "/babysitters/static/media/eclips.1e9fa68a4cb1d8b58b9b93d5a25d29f5.svg",
     "main.be89dc03.css.map": "/babysitters/static/css/main.be89dc03.css.map",
-    "main.8a9b608c.js.map": "/babysitters/static/js/main.8a9b608c.js.map"
+    "main.baa9b954.js.map": "/babysitters/static/js/main.baa9b954.js.map"
   },
   "entrypoints": [
     "static/css/main.be89dc03.css",
-    "static/js/main.8a9b608c.js"
+    "static/js/main.baa9b954.js"
   ]
 }
