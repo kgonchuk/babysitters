@@ -6,9 +6,11 @@ import Notiflix from "notiflix";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const UserNav = () => {
   const [authUser, setAuthUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -22,11 +24,11 @@ const UserNav = () => {
       listen();
     };
   }, []);
+
   const logOut = () => {
     signOut(auth)
       .then(() => {
         Notiflix.Notify.success("You have successfully logged out");
-        console.log("GoodBuy");
       })
       .catch((error) => {
         Notiflix.Notify.error(`Logout failed: ${error.message}`);

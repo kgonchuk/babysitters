@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-// const regEx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/;
+
 const RegisterSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Name should be at least 3 characters long!")
@@ -10,7 +10,7 @@ const RegisterSchema = Yup.object().shape({
     .required("Email is required"),
   password: Yup.string()
     .min(6)
-    // .matches(regEx, { message: "Please,  enter reliable password " })
+
     .required("Password is required"),
 });
 export default RegisterSchema;

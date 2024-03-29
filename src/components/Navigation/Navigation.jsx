@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
-import {
-  Catalog,
-  Favorite,
-  Home,
-  Nav,
-  NavLinkStyle,
-} from "./Navigation.styled";
+import { Nav, NavLinkStyle } from "./Navigation.styled";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
-
 
 const Navigation = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -26,17 +19,11 @@ const Navigation = () => {
   }, []);
   return (
     <Nav>
-      <Home>
-        <NavLinkStyle to="/">Home</NavLinkStyle>
-      </Home>
-      <Catalog>
-        <NavLinkStyle to="/nannies">Nannies</NavLinkStyle>
-      </Catalog>
-      {authUser && (
-        <Favorite>
-          <NavLinkStyle to="/favorite">Favorites</NavLinkStyle>
-        </Favorite>
-      )}
+      <NavLinkStyle to="/">Home</NavLinkStyle>
+
+      <NavLinkStyle to="/nannies">Nannies</NavLinkStyle>
+
+      {authUser && <NavLinkStyle to="/favorite">Favorites</NavLinkStyle>}
     </Nav>
   );
 };

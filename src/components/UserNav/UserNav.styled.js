@@ -27,6 +27,12 @@ export const Button = styled.button`
     background-color: ${baseTheme.background.main};
     border: 1px solid ${baseTheme.background.main};
   }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+  }
 `;
 export const UserWrap = styled.div`
   display: flex;

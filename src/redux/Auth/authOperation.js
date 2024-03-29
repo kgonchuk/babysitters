@@ -27,11 +27,10 @@ export const register = createAsyncThunk(
         email: user.email,
         accessToken: user.stsTokenManager.accessToken,
       };
+      Notiflix.Notify.success("Wellcome to Nannies.Sevice!");
       return dataUser;
     } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error(`Error: ${errorCode}`, errorMessage);
+      alert(`This email already used`);
     }
   }
 );
@@ -57,9 +56,7 @@ export const logIn = createAsyncThunk(
       Notiflix.Notify.success("Wellcome to Nannies.Sevice!");
       return dataUser;
     } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error(`Error: ${errorCode}`, errorMessage);
+      alert("Invalid passsword or email");
     }
   }
 );
@@ -83,16 +80,20 @@ export const fetchCurrentUser = createAsyncThunk(
           if (user === null) {
             reject("Unable to fetch user");
           } else {
-            const dataUser = {
+            const serializedUser = {
               name: user.displayName,
               email: user.email,
               accessToken: user.accessToken,
             };
-            resolve(dataUser);
+            resolve(serializedUser);
           }
         });
       } catch (error) {
-        reject(error);
+        const serializedError = {
+          code: error.code,
+          message: error.message,
+        };
+        return thunkAPI.rejectWithValue(serializedError);
       }
     });
   }

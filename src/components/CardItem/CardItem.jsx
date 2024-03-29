@@ -1,86 +1,95 @@
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../firebase/firebase";
 import { useEffect, useState } from "react";
 import {
+  AboutText,
+  AdditionalInfoWrapper,
   BtnAppointment,
-  BtnLike,
-  CarItemContainer,
   CaracterItem,
   CardCharacter,
-  CardDescription,
-  CardInfoBlock,
-  CardInfoName,
-  CardWrap,
   CharacterList,
+  Container,
+  ContainerInfo,
+  ContainerTitle,
+  FeaturesSpan,
+  FeaturesText,
+  HeartIcon,
+  Img,
   InfoBlock,
   InfoBlockContainer,
   InfoBlockReviewer,
   InfoComment,
-  InfoItem,
   InfoItemReview,
-  InfoItemText,
-  InfoList,
   InfoRating,
   InfoRatingBlock,
   InfoReviewName,
   InfoSpan,
+  Item,
+  Local,
+  Name,
+  NameText,
   OnlineIcon,
-  Photo,
+  PriceRating,
+  PriceSpan,
+  PriceText,
+  Rating,
+  RatingText,
   ReadMoreBtn,
   SpanAge,
-  Text,
-  TopBlock,
+  Star,
   WrapImg,
 } from "components/CardItem/CardItem.styled";
 import iconOnline from "../../assets/img/eclips.svg";
 import locationIcon from "../../assets/img/map-pin.svg";
-import ratingIcon from "../../assets/img/Star 2.svg";
-import heartIcon from "../../assets/img/heart.svg";
-import heartChooseIcon from "../../assets/img/heart-choose.svg";
+import ratingIcon from "../../assets/img/star.svg";
 import ModalWindow from "components/Modal/ModalWindow/ModalWindow";
 import ModalAppointment from "components/Modal/ModalAppointment/ModalAppointment";
-import Notiflix from "notiflix";
+
+import sprite from "../../assets/img/sprite.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { selectIsLoggedIn } from "../../redux/selectors";
+import {
+  addFavorites,
+  clearFavorites,
+  deleteFavorites,
+} from "../../redux/favoriteSlice";
+
+import { FaHeart } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa6";
 
 const CardItem = ({ nanny }) => {
-  const [isLiked, setIsLiked] = useState(false);
   const [ageInYears, setAgeInYears] = useState(0);
   const [isMoreInfo, setMoreInfo] = useState(false);
   const [isAppModalOpen, setAppModalOpen] = useState(false);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      const userId = user?.uid;
-      const storedFavorites =
-        JSON.parse(localStorage.getItem(`favorites-${userId}`)) || [];
-      setIsLiked(
-        storedFavorites.some((fav) => fav.avatar_url === nanny.avatar_url)
-      );
-    });
-
-    return () => unsubscribe();
-  }, [nanny.avatar_url]);
+  const dispatch = useDispatch();
+  const [modalIsOpenNotAuth, setModalIsOpenNotAuth] = useState(false);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    const userId = auth.currentUser?.uid;
-    if (userId) {
-      try {
-        const userPreferences = JSON.parse(localStorage.getItem(userId)) || {};
-        userPreferences.favorites = userPreferences.favorites || [];
+    if (!isLoggedIn) {
+      dispatch(clearFavorites());
+    }
+  }, [dispatch, isLoggedIn]);
 
-        if (isLiked) {
-          userPreferences.favorites.push(nanny.avatar_url);
-        } else {
-          userPreferences.favorites = userPreferences.favorites.filter(
-            (id) => id !== nanny.avatar_url
-          );
-        }
+  const openModalNotAuth = () => {
+    setModalIsOpenNotAuth(true);
+  };
 
-        localStorage.setItem(userId, JSON.stringify(userPreferences));
-      } catch (error) {
-        console.error("Error writing to localStorage:", error);
+  const isFavorite = useSelector((state) =>
+    state.favorites.favoritesNannies.some(
+      (favorite) => favorite.name === nanny.name
+    )
+  );
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      dispatch(deleteFavorites(nanny));
+    } else {
+      if (isLoggedIn) {
+        dispatch(addFavorites(nanny));
+      } else {
+        openModalNotAuth();
       }
     }
-  }, [isLiked, nanny.avatar_url]);
+  };
 
   useEffect(() => {
     const today = new Date();
@@ -90,34 +99,6 @@ const CardItem = ({ nanny }) => {
     setAgeInYears(ageYear);
   }, [nanny]);
 
-  const handlerClickLike = () => {
-    const userId = auth.currentUser?.uid;
-    if (userId) {
-      const newIsFavorite = !isLiked;
-      setIsLiked(newIsFavorite);
-
-      const storedFavorites =
-        JSON.parse(localStorage.getItem(`favorites-${userId}`)) || [];
-
-      if (newIsFavorite) {
-        localStorage.setItem(
-          `favorites-${userId}`,
-          JSON.stringify([...storedFavorites, nanny])
-        );
-      } else {
-        const updatedFavorites = storedFavorites.filter(
-          (fav) => fav.avatar_url !== nanny.avatar_url
-        );
-        localStorage.setItem(
-          `favorites-${userId}`,
-          JSON.stringify(updatedFavorites)
-        );
-      }
-    } else {
-      Notiflix.Notify.warning("Please log in to use this functionality.");
-      console.error("Error: User not logged in.");
-    }
-  };
   const handleMoreInfo = () => {
     setMoreInfo((prevSetMoreInfo) => !prevSetMoreInfo);
   };
@@ -130,43 +111,50 @@ const CardItem = ({ nanny }) => {
   };
   return (
     <>
-      <CarItemContainer>
+      <Item>
         <WrapImg>
-          <Photo src={nanny.avatar_url} alt="nannies_photo" />
+          <Img src={nanny.avatar_url} alt="name" height={96} width={96} />{" "}
           <OnlineIcon src={iconOnline} alt="online-icon" />
         </WrapImg>
-        <CardWrap>
-          <TopBlock>
-            <CardInfoName>
-              <p>Nanny</p>
-
-              <span>{nanny.name}</span>
-            </CardInfoName>
-            <CardInfoBlock>
-              <InfoList>
-                <InfoItem>
-                  <img src={locationIcon} alt="location-icon" />
-                  <InfoItemText>{nanny.location}</InfoItemText>
-                </InfoItem>
-                <InfoItem>
-                  <img src={ratingIcon} alt="rating-icon" />
-                  <InfoItemText>Rating: {nanny.rating}</InfoItemText>
-                </InfoItem>
-                <InfoItem>
-                  <InfoItemText>
-                    Price / 1 hour: <span>{nanny.price_per_hour}$</span>
-                  </InfoItemText>
-                </InfoItem>
-              </InfoList>{" "}
-              <BtnLike type="button" onClick={handlerClickLike}>
-                {isLiked ? (
-                  <img src={heartChooseIcon} alt="" />
+        <ContainerInfo>
+          <ContainerTitle>
+            <p>Nanny</p>
+            <PriceRating>
+              <Local>
+                <Star src={locationIcon} alt="location" />
+                <RatingText>{nanny.location}</RatingText>
+              </Local>
+              <svg width="16" height="16" style={{ fill: "#FFC531" }}>
+                <use href={`${sprite}#star`} />
+              </svg>
+              <RatingText>Rating: {nanny.rating}</RatingText>
+              <PriceText>
+                Price / hour: <PriceSpan>${nanny.price_per_hour}</PriceSpan>
+              </PriceText>
+              <HeartIcon>
+                {isFavorite ? (
+                  <FaHeart
+                    style={{
+                      corsor: "pointer",
+                      color: "#103931",
+                    }}
+                    size="26px"
+                    onClick={toggleFavorite}
+                  />
                 ) : (
-                  <img src={heartIcon} alt="" />
+                  <FaRegHeart
+                    style={{
+                      corsor: "pointer",
+                      color: "black",
+                    }}
+                    size="26px"
+                    onClick={toggleFavorite}
+                  />
                 )}
-              </BtnLike>
-            </CardInfoBlock>
-          </TopBlock>
+              </HeartIcon>
+            </PriceRating>
+          </ContainerTitle>
+          <NameText>{nanny.name}</NameText>{" "}
           <CardCharacter>
             <CharacterList>
               <CaracterItem>
@@ -186,10 +174,7 @@ const CardItem = ({ nanny }) => {
               </CaracterItem>
             </CharacterList>
           </CardCharacter>
-          <CardDescription>
-            <Text>{nanny.about}</Text>
-          </CardDescription>
-
+          <AboutText>{nanny.about}</AboutText>{" "}
           {isMoreInfo ? (
             <>
               <ul>
@@ -218,16 +203,8 @@ const CardItem = ({ nanny }) => {
           ) : (
             <ReadMoreBtn onClick={handleMoreInfo}>Read more</ReadMoreBtn>
           )}
-        </CardWrap>
-        {isAppModalOpen && (
-          <ModalWindow handleModalToggle={handleModalOpen} AppWidth>
-            <ModalAppointment
-              nanny={nanny}
-              handleModalToggle={handleModalOpen}
-            />
-          </ModalWindow>
-        )}
-      </CarItemContainer>
+        </ContainerInfo>
+      </Item>
     </>
   );
 };

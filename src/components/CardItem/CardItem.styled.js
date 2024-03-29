@@ -1,48 +1,10 @@
 import styled from "styled-components";
 import { baseTheme } from "styles/theme";
 
-export const CarItemContainer = styled.div`
-  background-color: ${baseTheme.background.white};
-  border-radius: 24px;
-  width: 100%;
-  padding: 18px;
-  margin-bottom: 16px;
-  @media screen and (min-width: 768px) {
-    /* width: 1184px; */
-    display: flex;
-    margin-bottom: 32px;
-    padding: 24px;
-  }
-  @media screen and (min-width: 1440px) {
-    /* width: 1184px; */
-    margin: 32px auto;
-  }
-`;
-
-export const CardWrap = styled.div`
-  position: relative;
-  box-sizing: border-box;
-  max-width: 1184px;
-  align-items: center;
-  border-radius: 24px;
-  background: rgb(251, 251, 251);
-`;
-export const TopBlock = styled.div`
-  margin-bottom: 12px;
-  span {
-    color: ${baseTheme.colors.primaryText};
-  }
-  @media screen and (min-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 24px;
-  }
-`;
 export const WrapImg = styled.div`
   margin: 0 auto;
   position: relative;
-  padding: 12px;
+  padding: 5px;
   width: 100px;
   height: 100px;
   box-sizing: border-box;
@@ -56,16 +18,27 @@ export const WrapImg = styled.div`
     width: 120px;
     height: 120px;
     margin: 0 24px 0 0;
+    padding: 12px;
   }
 `;
-
-export const Photo = styled.img`
-  width: 76px;
-  border-radius: 15px;
-  height: 76px;
+export const CardCharacter = styled.div``;
+export const CharacterList = styled.ul`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  span {
+    color: ${baseTheme.colors.primaryText};
+  }
+`;
+export const CaracterItem = styled.li`
+  font-size: 12px;
+  background-color: ${baseTheme.background.gray};
+  border-radius: 24px;
+  padding: 8px 16px;
   @media screen and (min-width: 768px) {
-    width: 96px;
-    height: 96px;
+    font-size: 16px;
   }
 `;
 export const OnlineIcon = styled.img`
@@ -79,115 +52,13 @@ export const OnlineIcon = styled.img`
     left: 92px;
   }
 `;
-
-export const CardInfoName = styled.div`
-  p {
-    font-size: 12px;
-    margin-bottom: 8px;
-    @media screen and (min-width: 768px) {
-      font-size: 16px;
-    }
-  }
-
-  span {
-    font-size: 16px;
-
-    @media screen and (min-width: 768px) {
-      font-size: 24px;
-    }
-  }
-  @media screen and (min-width: 768px) {
-  }
-`;
-
-export const CardInfoBlock = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 10px;
-  @media screen and (min-width: 768px) {
-    margin-top: 0;
-  }
-`;
-
-export const InfoList = styled.ul`
-  display: flex;
-  align-items: center;
-`;
-export const InfoItem = styled.li`
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  &::before {
-    content: "";
-    display: block;
-    height: 16px;
-    width: 1px;
-    background-color: rgba(17, 16, 28, 0.2);
-    margin: 0 4px;
-  }
-  &:first-child::before {
-    content: none;
-  }
-  & :last-child::after {
-    content: none;
-  }
-  @media screen and (min-width: 768px) {
-    &::before {
-      margin: 0 16px;
-    }
-  }
-`;
-export const InfoItemText = styled.p`
-  font-size: 12px;
-  color: ${baseTheme.colors.primaryText};
-  span {
-    color: #38cd3e;
-  }
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-  }
-`;
-
-export const CardCharacter = styled.div``;
-export const CharacterList = styled.ul`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-  span {
-    color: ${baseTheme.colors.primaryText};
-  }
-`;
 export const SpanAge = styled.span`
   text-decoration-line: underline;
   color: ${baseTheme.colors.primaryText};
 `;
-export const CaracterItem = styled.li`
-  font-size: 12px;
-  background-color: ${baseTheme.background.gray};
-  border-radius: 24px;
-  padding: 8px 16px;
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-  }
-`;
-
-export const CardDescription = styled.div`
-  margin-bottom: 48px;
-`;
-
-export const Text = styled.p`
-  font-weight: 400;
-  color: ${baseTheme.colors.secondaryText};
-  margin-bottom: 14px;
-`;
-
 export const BtnLike = styled.button`
   background-color: transparent;
-  /* width: 10px;
-  height: 10px; */
+
   padding: 0;
   img {
     width: 12px;
@@ -210,10 +81,11 @@ export const ReadMoreBtn = styled.button`
   background-color: transparent;
   padding: 0;
   color: ${baseTheme.colors.primaryText};
+  display: flex;
 `;
 export const InfoBlock = styled.div``;
 export const InfoItemReview = styled.li`
-  /* display: flex; */
+  display: flex;
 `;
 export const InfoSpan = styled.span`
   width: 44px;
@@ -248,7 +120,7 @@ export const BtnAppointment = styled.button`
   box-sizing: border-box;
   padding: 14px 28px;
   font-size: 16px;
-  margin-top: 62px;
+  margin-top: 48px;
   letter-spacing: -0.01em;
   text-decoration: none;
   border-radius: 30px;
@@ -264,5 +136,270 @@ export const BtnAppointment = styled.button`
 
   &:hover {
     background-color: ${baseTheme.background.secondaryMain};
+  }
+`;
+
+// =========================================
+export const Item = styled.li`
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  border-radius: 24px;
+  padding: 1.5rem;
+  background-color: ${baseTheme.background.white};
+  margin-bottom: 32px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+  @media screen and (min-width: 768px) {
+    max-width: 1184px;
+    min-width: 320px;
+  }
+`;
+
+export const HeartIcon = styled.div`
+  position: absolute;
+  top: 24px;
+  right: 24px;
+`;
+
+export const ContainerImg = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  width: 120px;
+  min-width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  border: 2px solid ${baseTheme.colors.borderColor};
+`;
+
+export const Img = styled.img`
+  width: 96px;
+  height: 96px;
+  border-radius: 15px;
+`;
+
+export const ContainerInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 87.78%;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
+`;
+
+export const ContainerTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* margin-bottom: 24px; */
+  margin-right: 40px;
+  font-size: 10px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+  }
+`;
+
+export const Name = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 500;
+  line-height: 1.5;
+  font-size: 10px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+`;
+
+export const NameText = styled.h3`
+  color: ${baseTheme.colors.primaryText};
+  font-size: 1.5em;
+  margin-bottom: 24px;
+`;
+export const Local = styled.div`
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  line-height: 1.5em;
+  &::after {
+    content: "";
+    display: block;
+    height: 16px;
+    width: 1px;
+    background-color: rgba(17, 16, 28, 0.2);
+    margin: 0 0 0 12px;
+  }
+
+  @media screen and (min-width: 768px) {
+    &::before {
+      margin: 0 16px;
+    }
+  }
+`;
+export const PriceRating = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  height: 24px;
+  @media screen and (max-width: 780px) {
+    height: auto;
+  }
+`;
+
+export const Rating = styled.div`
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  &::after {
+    content: "";
+    display: block;
+    height: 16px;
+    width: 1px;
+    background-color: rgba(17, 16, 28, 0.2);
+    margin: 0 0 0 12px;
+  }
+
+  @media screen and (min-width: 768px) {
+    &::before {
+      margin: 0 16px;
+    }
+  }
+`;
+
+export const Star = styled.img`
+  display: flex;
+  width: 16px;
+  height: 16px;
+`;
+
+export const RatingText = styled.p`
+  display: flex;
+  white-space: nowrap;
+  color: ${baseTheme.colors.primaryText};
+  font-weight: 500;
+  line-height: 1.5;
+`;
+
+export const PriceText = styled.p`
+  display: flex;
+  white-space: nowrap;
+  color: ${baseTheme.colors.primaryText};
+  font-weight: 500;
+  line-height: 1.5;
+`;
+
+export const PriceSpan = styled.span`
+  font-weight: 600;
+  color: #38cd3e;
+  margin-left: 4px;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+`;
+
+export const FeaturesText = styled.p`
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 10px;
+  line-height: 1.5;
+  background-color: ${baseTheme.background.gray};
+  border-radius: 24px;
+  padding: 8px 16px;
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+  }
+`;
+
+export const FeaturesSpan = styled.span`
+  display: flex;
+  color: ${baseTheme.colors.primaryText};
+`;
+
+export const AboutText = styled.p`
+  font-weight: 400;
+  line-height: 1.2;
+  color: ${baseTheme.colors.secondaryText};
+  margin-top: 24px;
+  margin-bottom: 14px;
+  text-align: left;
+`;
+
+export const BtnReadMore = styled.button`
+  cursor: pointer;
+  display: flex;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid ${baseTheme.colors.primaryText};
+  color: ${baseTheme.colors.primaryText};
+  height: 24px;
+  width: 82px;
+  font-weight: 500;
+  line-height: 1.5;
+`;
+
+export const BtnMakeAppointment = styled.button`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 227px;
+  height: 48px;
+  border-radius: 30px;
+  border: none;
+  background-color: ${baseTheme.background.main};
+  color: ${baseTheme.background.white};
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 24px;
+  &:hover {
+    background-color: "#36A379";
+  }
+`;
+
+export const NotAuthMessage = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: none;
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #d81f21;
+`;
+export const AdditionalInfoWrapper = styled.div`
+  font-size: 10px;
+  @media screen and (min-width: 768px) {
+    width: 783px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 12px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 783px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 16px;
   }
 `;

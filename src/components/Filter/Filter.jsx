@@ -1,64 +1,39 @@
-import { useState } from "react";
-import {
-  ArrowButton,
-  ArrowDown,
-  ArrowUp,
-  FilterContainer,
-  FilterItem,
-  FilterList,
-  FilterTitle,
-} from "./Filter.styled";
-import arrowUp from "../../assets/img/sprite.svg";
-import arrowDown from "../../assets/img/sprite.svg";
-const options = [
-  "A to Z",
-  "Z to A",
-  "Less then 10$",
-  "Greate then 10$",
-  "Popular",
-  "Not popular",
-  "Show all",
-];
-const Filter = ({ onFilterChange }) => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [option, setOption] = useState(options[0]);
+import React from "react";
+import { Dropdown } from "../../components/CheckForm/CheckForm";
+import { useDispatch } from "react-redux";
+import { setSelectedFilter } from "../../redux/Nannies/nanniesSlice";
+import { FilterContainer, FilterTitle } from "./Filter.styled";
 
-  const handleOptionSelect = (selectedOption) => {
-    console.log(selectedOption);
-    setOption(selectedOption);
-    setDropdownOpen(false);
+const Filter = () => {
+  const defaultFilter = "Show all";
+  const dispatch = useDispatch();
+  const options = [
+    "A to Z",
+    "Z to A",
+    "Less than 10$",
+    "Greater than 10$",
+    "Popular",
+    "Not popular",
+    "Show all",
+  ];
 
-    onFilterChange(selectedOption);
+  const handleFilterChange = (selectedFilter) => {
+    dispatch(setSelectedFilter(selectedFilter));
   };
 
   return (
     <FilterContainer>
       <FilterTitle>Filters</FilterTitle>
-      <ArrowButton onClick={() => setDropdownOpen(!isDropdownOpen)}>
-        {option}{" "}
-        {isDropdownOpen ? (
-          <ArrowUp>
-            <svg width={20} height={20}>
-              <use href={`${arrowUp}#chevron-up`} />
-            </svg>
-          </ArrowUp>
-        ) : (
-          <ArrowDown>
-            <svg width={20} height={20}>
-              <use href={`${arrowDown}#chevron-down`} />
-            </svg>
-          </ArrowDown>
-        )}
-      </ArrowButton>
-      <FilterList $isOpen={isDropdownOpen}>
-        {options.map((option, index) => (
-          <FilterItem key={index} onClick={() => handleOptionSelect(option)}>
-            {option}
-          </FilterItem>
-        ))}
-      </FilterList>
+      <Dropdown defaultOption={defaultFilter} onSelect={handleFilterChange}>
+        {options.map((option) => {
+          return (
+            <span key={option} value={option}>
+              {option}
+            </span>
+          );
+        })}
+      </Dropdown>
     </FilterContainer>
   );
 };
-
 export default Filter;

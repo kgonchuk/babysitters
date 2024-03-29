@@ -20,7 +20,6 @@ export const HeaderContainer = styled.header`
   }}
   margin: 0 auto;
   width: 100%;
-  /* max-width: 320px; */
 `;
 export const HeaderWrap = styled.div`
   display: flex;
@@ -33,7 +32,7 @@ export const HeaderWrap = styled.div`
     align-items: center;
     justify-content: space-between;
     max-height: 88px;
-    padding: 20px 96px;
+    padding: 20px 40px;
   }
   @media screen and (min-width: 1440px) {
     padding: 20px 96px;

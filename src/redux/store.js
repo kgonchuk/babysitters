@@ -11,17 +11,26 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { favoritesReducer } from "./favoriteSlice";
+import { nanniesReducer } from "./Nannies/nanniesSlice";
+import { filterReducer } from "./filterSlice";
 
 const authPersistConfig = {
   key: "auth",
   storage,
   whitelist: ["token"],
 };
+const favoretesPersistConfig = {
+  key: "favorites",
+  storage,
+};
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
- 
+    nannies: nanniesReducer,
+    favorites: persistReducer(favoretesPersistConfig, favoritesReducer),
+    filter: filterReducer,
   },
 
   middleware: (getDefaultMiddleware) =>

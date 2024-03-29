@@ -1,89 +1,87 @@
 import CardItem from "components/CardItem/CardItem";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../firebase/firebase";
-import { useCallback, useEffect, useState } from "react";
-import { BtrLoadMore, CardListContainer } from "./Favorite.styled";
 
-const Favorites = ({ filterOption }) => {
-  const [favoriteCards, setFavoriteCards] = useState([]);
-  const [visibleFavoriteCards, setVisibleFavoriteCards] = useState(1);
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { nextPage } from "../../redux/Nannies/nanniesSlice";
+import {
+  selectCurrentPage,
+  selectFavoritesNannies,
+  selectFilter,
+  selectItemsPerPage,
+} from "../../redux/selectors";
+import {
+  BtrLoadMore,
+  CardListContainer,
+  EmptyText,
+  TextLink,
+} from "./Favorite.styled";
 
-  const fetchData = useCallback(() => {
-    try {
-      const userId = auth.currentUser?.uid;
-      if (userId) {
-        const storedFavorites =
-          JSON.parse(localStorage.getItem(`favorites-${userId}`)) || [];
-        setFavoriteCards(storedFavorites);
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }, []);
+const Favorites = () => {
+  const favorites = useSelector(selectFavoritesNannies);
+  const dispatch = useDispatch();
+  const currentPage = useSelector(selectCurrentPage);
+  const itemsPerPage = useSelector(selectItemsPerPage);
+  const filter = useSelector(selectFilter);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        fetchData();
-      }
-    });
-
-    return () => unsubscribe();
-  }, [fetchData]);
-
-  const applyFilter = (nannyArray, option) => {
-    switch (option) {
+  const applyFilter = (nannies, filter) => {
+    switch (filter) {
       case "A to Z":
-        return nannyArray.slice().sort((a, b) => a.name.localeCompare(b.name));
+        return nannies.slice().sort((a, b) => a.name.localeCompare(b.name));
       case "Z to A":
-        return nannyArray.sort((a, b) => b.name.localeCompare(a.name));
+        return nannies.slice().sort((a, b) => b.name.localeCompare(a.name));
       case "Less than 10$":
-        return nannyArray.filter((nanny) => nanny.price_per_hour <= 10);
+        return nannies.filter((nanny) => nanny.price_per_hour < 10);
       case "Greater than 10$":
-        return nannyArray.filter((nanny) => nanny.price_per_hour >= 10);
+        return nannies.filter((nanny) => nanny.price_per_hour > 10);
       case "Popular":
-        return nannyArray.sort((a, b) => b.rating - a.rating);
+        return nannies.slice().sort((a, b) => b.rating - a.rating);
       case "Not popular":
-        return nannyArray.sort((a, b) => a.rating - b.rating);
-      case "Show all":
-        return nannyArray;
+        return nannies.slice().sort((a, b) => a.rating - b.rating);
       default:
-        return nannyArray;
+        return nannies;
     }
   };
+  const filteredNanny = applyFilter(favorites, filter);
+  const displayNanny = filteredNanny.slice(0, currentPage * itemsPerPage);
 
-  const filteredFavoriteCards = applyFilter(favoriteCards, filterOption);
+  const hasFavorites = favorites.length !== 0;
+  const hasFilteredPsychologists = displayNanny.length !== 0;
+  const hasDisplayedPsychologists = displayNanny.length !== 0;
+  const shouldDisplayNoMatchesMessage =
+    !hasDisplayedPsychologists && hasFavorites && !hasFilteredPsychologists;
+  const visibleItems =
+    displayNanny.length < favorites.length && hasFilteredPsychologists;
 
   const handleLoadMore = () => {
-    const remainingCards =
-      filteredFavoriteCards.length - visibleFavoriteCards * 3;
-    const newVisibleCards = Math.min(3, remainingCards);
-    setVisibleFavoriteCards(
-      (prevVisibleFavoriteCards) => prevVisibleFavoriteCards + newVisibleCards
-    );
+    dispatch(nextPage());
   };
-
   return (
     <CardListContainer>
-      {filteredFavoriteCards.length === 0 ? (
+      {shouldDisplayNoMatchesMessage && (
         <div>
-          <p>No favorites yet. You can choose it in catalog.</p>
+          <p>No matches with the current filter.</p>
         </div>
-      ) : (
+      )}
+      {!hasFavorites && (
         <div>
-          {filteredFavoriteCards
-            .slice(0, visibleFavoriteCards * 3)
-            .map((favoriteCard, index) => (
-              <CardItem key={index} nanny={favoriteCard} />
-            ))}
-          {filteredFavoriteCards.length > visibleFavoriteCards * 3 && (
-            <BtrLoadMore onClick={handleLoadMore}>Load more</BtrLoadMore>
-          )}
+          <EmptyText>Your list of favorite nannies is empty.</EmptyText>
+          <TextLink>
+            <Link to="/nannies">Explore our nannies</Link> to find someone you'd
+            like to add.
+          </TextLink>
         </div>
+      )}
+      {hasDisplayedPsychologists && (
+        <ul>
+          {displayNanny.map((nanny) => (
+            <CardItem key={nanny.id} nanny={nanny} />
+          ))}
+        </ul>
+      )}
+      {visibleItems && (
+        <BtrLoadMore onClick={handleLoadMore}>Load More</BtrLoadMore>
       )}
     </CardListContainer>
   );
 };
-
-//комент чек
 export default Favorites;

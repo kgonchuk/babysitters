@@ -11,14 +11,15 @@ import {
   ImageBlock,
   ImageText,
   Svg,
-  Span,
 } from "./HomePage.styled";
 
 import iconArrow from "../../assets/img/sprite.svg";
 import iconCheck from "../../assets/img/sprite.svg";
 import Header from "../../components/Header/Header";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Section>
@@ -28,15 +29,11 @@ const HomePage = () => {
             <Content>
               <Title>Make Life Easier for the Family:</Title>
               <Text>Find Babysitters Online for All Occasions</Text>
-              <Button>
-                <StartBtn to="/nannies">
-                  Get started
-                  <Span>
-                    <Svg width={18} height={18}>
-                      <use href={`${iconCheck}#arrow`} />
-                    </Svg>
-                  </Span>
-                </StartBtn>
+              <Button type="button" onClick={() => navigate("nannies")}>
+                Get started
+                <Svg>
+                  <use href={`${iconCheck}#arrow`} />
+                </Svg>
               </Button>
             </Content>
           </TextContainer>

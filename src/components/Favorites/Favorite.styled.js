@@ -32,3 +32,21 @@ export const BtrLoadMore = styled.button`
     background-color: ${baseTheme.background.secondaryMain};
   }
 `;
+export const TextLink = styled.p`
+  color: ${baseTheme.background.main};
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+`;
+export const EmptyText = styled.p`
+  color: ${baseTheme.background.main};
+  font-size: 22px;
+  text-align: center;
+  margin-top: 10px;
+`;
+export const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 64px;
+`;

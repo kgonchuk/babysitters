@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import heroImg from "../../assets/img/Hero1.jpg";
-import { NavLink } from "react-router-dom";
 import { baseTheme } from "../../styles/theme";
 
 export const Section = styled.section`
@@ -36,6 +35,13 @@ export const Content = styled.div`
   margin-top: 125px;
   min-height: 300px;
   @media screen and (min-width: 768px) {
+    margin-left: 50px;
+    margin-top: 235px;
+    max-width: 417px;
+    line-height: 1;
+    letter-spacing: -2.1px;
+  }
+  @media screen and (min-width: 1440px) {
     margin-left: 64px;
     margin-top: 251px;
     max-width: 517px;
@@ -64,6 +70,10 @@ export const Title = styled.h1`
   margin-bottom: 14px;
 
   @media screen and (min-width: 768px) {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 1440px) {
     font-size: 70px;
     margin-bottom: 28px;
   }
@@ -74,44 +84,33 @@ export const Text = styled.p`
   margin-bottom: 32px;
   padding-top: 30px;
   @media screen and (min-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: 1440px) {
     font-size: 28px;
     margin-bottom: 64px;
   }
 `;
-export const StartBtn = styled(NavLink)``;
+
 export const Button = styled.button`
-  font-size: 10px;
-  width: 120px;
-  height: 40px;
+  border: 1px solid rgba(251, 251, 251, 0.4);
   border-radius: 30px;
-  border: 1px solid ${baseTheme.colors.borderColor};
-  background-color: inherit;
+  padding: 18px 50px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  background-color: transparent;
   color: ${baseTheme.background.white};
-  fill: currentColor;
-  transition: ${baseTheme.transition};
-  span {
-    margin-left: 8px;
-  }
-  svg {
-    fill: ${baseTheme.background.white};
-    transition: ${baseTheme.transition};
-  }
-  transition: ${baseTheme.transition};
   &:hover {
-    background-color: ${baseTheme.background.white};
+    transition: all 0.3s;
+    background-color: #fbfbfb;
     color: ${baseTheme.background.main};
     svg {
-      fill: ${baseTheme.background.main};
+      transition: transform 0.3s;
       transform: rotate(53deg);
-    }
-  }
-  @media screen and (min-width: 768px) {
-    font-size: 20px;
-    width: 230px;
-    height: 60px;
-    & svg {
-      width: 18px;
-      height: 18px;
+      fill: ${baseTheme.background.main};
     }
   }
 `;
@@ -173,5 +172,10 @@ export const ImageText = styled.div`
     }
   }
 `;
-export const Svg = styled.svg``;
+export const Svg = styled.svg`
+  fill: ${baseTheme.background.white};
+  width: 18px;
+  height: 18px;
+  margin-left: 18px;
+`;
 export const Span = styled.span``;
