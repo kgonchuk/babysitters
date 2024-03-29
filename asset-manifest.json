@@ -1,42 +1,24 @@
 {
   "files": {
-    "main.css": "/babysitters/static/css/main.edbe68a0.css",
-    "main.js": "/babysitters/static/js/main.a7886b6d.js",
-    "static/js/316.c1f59820.chunk.js": "/babysitters/static/js/316.c1f59820.chunk.js",
-    "static/css/235.e63c02a0.chunk.css": "/babysitters/static/css/235.e63c02a0.chunk.css",
-    "static/js/235.f2e631e4.chunk.js": "/babysitters/static/js/235.f2e631e4.chunk.js",
-    "static/css/547.e63c02a0.chunk.css": "/babysitters/static/css/547.e63c02a0.chunk.css",
-    "static/js/547.b040cdb5.chunk.js": "/babysitters/static/js/547.b040cdb5.chunk.js",
-    "static/js/543.11d4c124.chunk.js": "/babysitters/static/js/543.11d4c124.chunk.js",
-    "static/js/400.7e60bf5a.chunk.js": "/babysitters/static/js/400.7e60bf5a.chunk.js",
-    "static/js/956.c70d199f.chunk.js": "/babysitters/static/js/956.c70d199f.chunk.js",
+    "main.css": "/babysitters/static/css/main.be89dc03.css",
+    "main.js": "/babysitters/static/js/main.8a9b608c.js",
     "static/media/Hero1.jpg": "/babysitters/static/media/Hero1.b928aa4e7c3ef9f5e602.jpg",
     "static/media/HelveticaNeue Regular.ttf": "/babysitters/static/media/HelveticaNeue Regular.fe4c68c768ad00e80434.ttf",
     "static/media/HelveticaNeue Bold.ttf": "/babysitters/static/media/HelveticaNeue Bold.61acdee6f288cddccf23.ttf",
     "static/media/HelveticaNeue-Medium.ttf": "/babysitters/static/media/HelveticaNeue-Medium.bfdbae3c80f7aa49c618.ttf",
     "static/media/sprite.svg": "/babysitters/static/media/sprite.87dee12158b429916f4173f62513482f.svg",
-    "static/media/heart-choose.svg": "/babysitters/static/media/heart-choose.fa92282c1ec976d4b141255020a4f93a.svg",
-    "static/media/heart.svg": "/babysitters/static/media/heart.b26039971937e6d6918991f71b6f85ce.svg",
+    "static/media/star.svg": "/babysitters/static/media/star.d1edcad9fe70055686e45099534478cb.svg",
     "static/media/map-pin.svg": "/babysitters/static/media/map-pin.b15519da4c4e11a608a505af86c67deb.svg",
     "index.html": "/babysitters/index.html",
     "static/media/clock.svg": "/babysitters/static/media/clock.0bbbf9bf78367ff87e7e7293e7e4601b.svg",
-    "static/media/Star 2.svg": "/babysitters/static/media/Star 2.c1d549c32ae17271c66ad10e4c8274b8.svg",
     "static/media/image.svg": "/babysitters/static/media/image.3f27a37212fbb4c2b10b9608755acf69.svg",
     "static/media/menu.svg": "/babysitters/static/media/menu.d7f0a233c177f44e2259011efb40c466.svg",
     "static/media/eclips.svg": "/babysitters/static/media/eclips.1e9fa68a4cb1d8b58b9b93d5a25d29f5.svg",
-    "main.edbe68a0.css.map": "/babysitters/static/css/main.edbe68a0.css.map",
-    "main.a7886b6d.js.map": "/babysitters/static/js/main.a7886b6d.js.map",
-    "316.c1f59820.chunk.js.map": "/babysitters/static/js/316.c1f59820.chunk.js.map",
-    "235.e63c02a0.chunk.css.map": "/babysitters/static/css/235.e63c02a0.chunk.css.map",
-    "235.f2e631e4.chunk.js.map": "/babysitters/static/js/235.f2e631e4.chunk.js.map",
-    "547.e63c02a0.chunk.css.map": "/babysitters/static/css/547.e63c02a0.chunk.css.map",
-    "547.b040cdb5.chunk.js.map": "/babysitters/static/js/547.b040cdb5.chunk.js.map",
-    "543.11d4c124.chunk.js.map": "/babysitters/static/js/543.11d4c124.chunk.js.map",
-    "400.7e60bf5a.chunk.js.map": "/babysitters/static/js/400.7e60bf5a.chunk.js.map",
-    "956.c70d199f.chunk.js.map": "/babysitters/static/js/956.c70d199f.chunk.js.map"
+    "main.be89dc03.css.map": "/babysitters/static/css/main.be89dc03.css.map",
+    "main.8a9b608c.js.map": "/babysitters/static/js/main.8a9b608c.js.map"
   },
   "entrypoints": [
-    "static/css/main.edbe68a0.css",
-    "static/js/main.a7886b6d.js"
+    "static/css/main.be89dc03.css",
+    "static/js/main.8a9b608c.js"
   ]
 }
